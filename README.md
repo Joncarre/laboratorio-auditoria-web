@@ -1,8 +1,8 @@
-# Laboratorio de Auditoría Web
+# Laboratorio de auditoría web
 
-Este proyecto es un laboratorio de práctica para aprender sobre vulnerabilidades web, específicamente SQL Injection.
+Repositorio donde ir desarrollando el laboratorio de auditoría web correspondiente a la Práctica 2 de la asignatura Prácticas de Iniciación Profesional.
 
-## 🚀 Configuración del Entorno
+## Configuración del Entorno
 
 ### Prerrequisitos
 - XAMPP (Apache + MySQL + PHP)
@@ -11,7 +11,7 @@ Este proyecto es un laboratorio de práctica para aprender sobre vulnerabilidade
 ### Instalación
 
 1. **Instalar XAMPP**
-   - Descargar desde [https://www.apachefriends.org/](https://www.apachefriends.org/)
+   - Descargar desde [https://www.apachefriends.org/](https://www.apachefriends.org)
    - Instalar y ejecutar Apache y MySQL
 
 2. **Configurar el proyecto**
@@ -44,44 +44,11 @@ laboratorio-auditoria-web/
 └── README.md
 ```
 
-## 🎯 Ejercicios del Laboratorio
-
-### ✅ Ejercicio 1 - Entorno Base (COMPLETADO)
-- [x] Configuración de PHP, Apache y MySQL
-- [x] Creación de tablas `users` y `blog`
-- [x] Inserción de datos de prueba
-- [x] Interfaz web básica con estilo moderno
-
-### 🔄 Próximos Ejercicios
-2. Implementar vulnerabilidad SQL Injection
-3. Demostración de SQL Injection manual
-4. Implementar Blind SQL Injection
-5. Demostración de Blind SQLi
-6. Auditoría con SQLMap y otras herramientas
-7. Script automatizado de extracción
-8. Corrección de vulnerabilidades
-
-## 🎨 Características del Diseño
-
-- **Estilo moderno y minimalista**
-- **Colores pasteles** con gradientes suaves
-- **Bordes redondeados** en todos los elementos
-- **Efectos de transparencia** con backdrop-filter
-- **Animaciones hover** suaves
-- **Diseño responsivo**
-
-## ⚠️ Advertencia de Seguridad
-
-**Este proyecto contiene vulnerabilidades intencionadas para fines educativos.**
-- Solo usar en entornos de desarrollo local
-- No implementar en servidores de producción
-- Destinado exclusivamente para aprendizaje de seguridad web
-
 ## 🗄️ Base de Datos
 
 ### Tabla `users`
 | Campo    | Tipo         | Descripción           |
-|----------|-------------|-----------------------|
+|----------|--------------|-----------------------|
 | id       | INT (PK)     | Identificador único   |
 | email    | VARCHAR(255) | Email del usuario     |
 | name     | VARCHAR(255) | Nombre del usuario    |
@@ -89,13 +56,13 @@ laboratorio-auditoria-web/
 
 ### Tabla `blog`
 | Campo    | Tipo         | Descripción           |
-|----------|-------------|-----------------------|
+|----------|--------------|-----------------------|
 | id       | INT (PK)     | Identificador único   |
 | title    | VARCHAR(255) | Título del artículo   |
 | body     | TEXT         | Contenido del artículo|
 | datetime | DATETIME     | Fecha de publicación  |
 
-## 📊 Datos de Prueba
+## 📊 Datos de prueba utilizados
 
 **Usuarios:**
 - admin@example.com - Administrador
