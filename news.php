@@ -2,26 +2,33 @@
 require_once 'config/database.php';
 require_once 'includes/header.php';
 
-// CÓDIGO VULNERABLE A SQL INJECTION CLÁSICO
-// Muestra todos los resultados de la consulta
+// CÓDIGO VULNERABLE A BLIND SQL INJECTION
+// No muestra datos específicos, solo confirmación de existencia
 
-$articles = [];
+$article_exists = false;
 $error = null;
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     
     try {
-        // VULNERABILIDAD: Concatenación directa sin escape
-        $query = "SELECT id, title, body, datetime FROM blog WHERE id = " . $id;
+        // VULNERABILIDAD: Concatenación directa (mantiene la vulnerabilidad)
+        // Pero solo verificamos existencia, no mostramos datos
+        $query = "SELECT id FROM blog WHERE id = " . $id;
         
         $result = $pdo->query($query);
         
-        // Obtener TODOS los resultados (permite ver inyecciones exitosas)
-        $articles = $result->fetchAll(PDO::FETCH_ASSOC);
+        // BLIND: Solo confirmamos si existe al menos un resultado
+        if ($result && $result->rowCount() > 0) {
+            $article_exists = true;
+        } else {
+            $article_exists = false;
+        }
         
     } catch(PDOException $e) {
-        $error = "Error SQL: " . $e->getMessage();
+        // BLIND: No mostramos errores específicos de SQL
+        $article_exists = false;
+        $error = "Error al procesar la consulta.";
     }
 } else {
     $error = "ID de artículo no especificado.";
@@ -35,32 +42,31 @@ if (isset($_GET['id'])) {
     <div class="blog-card">
         <a href="index.php" class="read-more">← Volver al inicio</a>
     </div>
-<?php elseif (empty($articles)): ?>
+<?php elseif ($article_exists): ?>
     <div class="blog-card">
-        <h1 class="blog-title">Artículo No Encontrado</h1>
+        <h1 class="blog-title">✅ Artículo Encontrado</h1>
         <div class="blog-excerpt">
-            <p>No se encontraron artículos con el ID especificado.</p>
-            <p>Verifica que el ID del artículo sea correcto (1, 2, o 3).</p>
+            <p>La consulta ha encontrado al menos un artículo que coincide con los criterios especificados.</p>
+            <p><strong>Nota:</strong> Esta aplicación solo confirma la existencia de artículos, no muestra su contenido por razones de seguridad.</p>
         </div>
         <div class="blog-meta">
-            Consulta ejecutada - Sin resultados
+            Consulta ejecutada exitosamente
         </div>
     </div>
     <div class="blog-card">
         <a href="index.php" class="read-more">← Volver al inicio</a>
     </div>
 <?php else: ?>
-    <?php foreach ($articles as $article): ?>
-        <div class="blog-card">
-            <h1 class="blog-title"><?php echo htmlspecialchars($article['title']); ?></h1>
-            <div class="blog-excerpt">
-                <?php echo nl2br(htmlspecialchars($article['body'])); ?>
-            </div>
-            <div class="blog-meta">
-                <strong>ID:</strong> <?php echo htmlspecialchars($article['id']); ?> | 
-                <strong>Fecha:</strong> <?php echo htmlspecialchars($article['datetime']); ?>
-            </div>
-        </div>    <?php endforeach; ?>
+    <div class="blog-card">
+        <h1 class="blog-title">❌ Artículo No Encontrado</h1>
+        <div class="blog-excerpt">
+            <p>No se encontraron artículos que coincidan con los criterios especificados.</p>
+            <p>Verifica que el ID del artículo sea correcto (1, 2, o 3).</p>
+        </div>
+        <div class="blog-meta">
+            Consulta ejecutada - Sin resultados
+        </div>
+    </div>
     <div class="blog-card">
         <a href="index.php" class="read-more">← Volver al inicio</a>
     </div>
