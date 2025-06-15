@@ -63,7 +63,7 @@ laboratorio-auditoria-web/
 | body     | TEXT         | Contenido del artículo|
 | datetime | DATETIME     | Fecha de publicación  |
 
-## 📊 Datos de prueba utilizados
+## Datos de prueba utilizados
 
 **Usuarios:**
 - admin@example.com - Administrador
