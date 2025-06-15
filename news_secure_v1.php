@@ -3,9 +3,7 @@
 require_once 'config/database.php';
 require_once 'includes/header.php';
 
-// CÓDIGO SEGURO CON PREPARED STATEMENTS
-// SOLUCIÓN APLICADA: Uso de Prepared Statements con parámetros vinculados
-
+// SOLUCIÓN 1: Uso de Prepared Statements con parámetros vinculados
 $article_exists = false;
 $error = null;
 
@@ -13,8 +11,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     
     try {
-        // CORRECCIÓN: Prepared Statement con parámetro vinculado
-        // El valor del usuario nunca se concatena directamente en la consulta
+
         $query = "SELECT id FROM blog WHERE id = ?";
         $stmt = $pdo->prepare($query);
         $stmt->execute([$id]);
@@ -44,7 +41,8 @@ if (isset($_GET['id'])) {
     </div>
 <?php elseif ($article_exists): ?>
     <div class="blog-card">
-        <h1 class="blog-title">✅ Artículo Encontrado</h1>        <div class="blog-excerpt">
+        <h1 class="blog-title">✅ Artículo Encontrado</h1>
+        <div class="blog-excerpt">
             <p>La consulta ha encontrado al menos un artículo que coincide con los criterios especificados.</p>
             <p><strong>✅ SEGURO:</strong> Esta aplicación ha sido protegida contra SQL Injection usando Prepared Statements.</p>
         </div>
@@ -61,7 +59,8 @@ if (isset($_GET['id'])) {
         <div class="blog-excerpt">
             <p>No se encontraron artículos que coincidan con los criterios especificados.</p>
             <p>Verifica que el ID del artículo sea correcto (1, 2, o 3).</p>
-        </div>        <div class="blog-meta">
+        </div>
+        <div class="blog-meta">
             Consulta ejecutada de forma segura
         </div>
     </div>

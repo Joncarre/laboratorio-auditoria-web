@@ -1,5 +1,4 @@
--- Script de configuración de la base de datos
--- Ejecutar este script en MySQL para crear la base de datos y las tablas
+-- Creado por Jonathan Carrero (jonathan.carrero@alumnos.ui1.es)
 
 CREATE DATABASE IF NOT EXISTS auditoria_web CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE auditoria_web;

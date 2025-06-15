@@ -1,4 +1,5 @@
 <?php
+// Creado por Jonathan Carrero (jonathan.carrero@alumnos.ui1.es)
 require_once 'config/database.php';
 require_once 'includes/header.php';
 

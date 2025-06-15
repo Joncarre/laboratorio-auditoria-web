@@ -763,3 +763,7 @@ Report generated: HTML format with detailed findings
 - **SQLMap** es ideal para extracción rápida y automatizada de datos
 - **Burp Suite** es perfecto para análisis integral de aplicaciones web y pruebas manuales detalladas
 - **La combinación de ambas herramientas** proporciona cobertura completa: SQLMap para explotación rápida y Burp Suite para análisis profundo
+
+
+
+

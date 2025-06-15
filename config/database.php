@@ -1,4 +1,5 @@
 <?php
+// Creado por Jonathan Carrero (jonathan.carrero@alumnos.ui1.es)
 // Configuración de la base de datos
 $host = 'localhost';
 $dbname = 'auditoria_web';

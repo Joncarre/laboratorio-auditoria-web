@@ -32,7 +32,7 @@ Repositorio donde ir desarrollando el laboratorio de auditoría web correspondie
 ```
 laboratorio-auditoria-web/
 ├── config/
-│   └── database.php          # Configuración de base de datos
+│   └── database.php         # Configuración de base de datos
 ├── database/
 │   └── setup.sql            # Script de configuración de BD
 ├── includes/
@@ -43,6 +43,7 @@ laboratorio-auditoria-web/
 ├── users.php                # Página de usuarios
 └── README.md
 ```
+
 
 ## 🗄️ Base de Datos
 
