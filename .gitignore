@@ -1,0 +1,82 @@
+# Herramientas de pentesting - No incluir en el repositorio
+sqlmap/
+
+# Archivos de documentación de ejercicios (mantener solo README.md)
+EJERCICIO_*.md
+SETUP.md
+
+# Archivos de configuración local
+config/local.php
+config/database_local.php
+
+# Logs y archivos temporales
+*.log
+*.tmp
+temp/
+logs/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos de respaldo
+*.bak
+*.backup
+*.old
+
+# Archivos sensibles
+passwords.txt
+credentials.txt
+*.key
+*.pem
+
+# Archivos de base de datos locales
+*.sqlite
+*.db
+
+# Archivos de cache de PHP
+*.cache
+cache/
+
+# Archivos de sesiones
+sessions/
+tmp/
+
+# Reportes de auditoría (pueden contener información sensible)
+reports/
+audit_reports/
+*.html.report
+*.xml.report
+
+# Configuraciones específicas del entorno
+.env
+.env.local
+.env.production
+
+# Archivos de herramientas de pentesting
+burp/
+nmap/
+nikto/
+dirb/
+gobuster/
+
+# Capturas de pantalla que pueden contener información sensible
+screenshots/
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Archivos comprimidos que pueden contener herramientas
+*.zip
+*.rar
+*.tar.gz
+*.7z
